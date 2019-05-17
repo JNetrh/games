@@ -10,7 +10,7 @@ export class EventsController {
     @Get('/')
     async getAllEvents() {
         try {
-            const events = await this.eventsService.getAllEvents();
+            const events = await this.eventsService.getMondayEvents();
             return events;
         } catch (e) {
           throw Error(e);

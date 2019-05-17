@@ -5,7 +5,7 @@ import { EventsModule } from './modules/events/events.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://UPlusTest:<password>@upluscluster-rz1dt.mongodb.net/games?retryWrites=true', { useNewUrlParser: true }),
+    MongooseModule.forRoot('mongodb+srv://UPlusTest:UT_abuk850@upluscluster-rz1dt.mongodb.net/games?retryWrites=true', { useNewUrlParser: true }),
     GameModule,
     EventsModule,
 ],
