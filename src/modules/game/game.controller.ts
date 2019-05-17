@@ -11,7 +11,7 @@ export class GameController {
   @Get('/')
   async getGameInfo() {
     try {
-      return await this.gameService.getGames();
+      return await this.gameService.getDeals();
     } catch (e) {
       throw Error(e);
     }
