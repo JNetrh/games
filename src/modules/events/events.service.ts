@@ -7,12 +7,17 @@ import { CreateEventDTO } from './dto/create-event.dto';
 @Injectable()
 export class EventsService {
     constructor(@InjectModel('searchEvents') private readonly eventsModel: Model<IEvent>) { }
-    // fetch all events
+    /**
+     * NOT IN USE
+     * returns all event in the database
+     */
     async getAllEvents(): Promise<IEvent[]> {
         const events = await this.eventsModel.find().exec();
         return events;
     }
-    // fetch events on Mondays
+    /**
+     * Fetch all events, fiters them and returns all on Mondays
+     */
     async getMondayEvents(): Promise<IEvent[]> {
         const allEvents = await this.eventsModel.find().exec();
         const events = allEvents.filter(e => {
@@ -21,6 +26,10 @@ export class EventsService {
         });
         return events;
     }
+    /**
+     * writes an event to the database
+     * @param createEventDTO event to be written
+     */
     async createEvent(createEventDTO: CreateEventDTO): Promise<IEvent> {
         const newEvent = new this.eventsModel(createEventDTO);
         return await newEvent.save();

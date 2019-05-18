@@ -9,7 +9,7 @@ export class EventsController {
 
     // Retrieve events list
     @Get('/')
-    @UseGuards(AuthGuard('bearer'))
+    @UseGuards(AuthGuard('bearer')) // private endpoint
     async getAllEvents() {
         try {
             const events = await this.eventsService.getMondayEvents();

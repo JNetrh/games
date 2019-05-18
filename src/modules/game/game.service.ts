@@ -29,13 +29,22 @@ export class GameService {
     };
   }
 
+  /**
+   * fetch games and retrieve theirs game ID`s
+   * for each game fetch deal
+   * returnes these deals all togather
+   */
   public async getDeals(): Promise<IGame[]> {
     const gamesList = await this.getGames();
-    const dealIds = gamesList.map(e => e.dealID);
-    const deals = await Promise.all(dealIds.map(e => this.getDeal(e)));    
+    const dealIds = gamesList.map(e => e.dealID); // we are interested only in gameID`s
+    const deals = await Promise.all(dealIds.map(e => this.getDeal(e))); // call getDeal() for every deal and wait for all responses
     return deals;
   }
 
+  /**
+   * returnes deal according to the game id
+   * @param dealId of the game we are interested in
+   */
   private async fetchGameDeal(dealId: string): Promise<AxiosResponse> {
     const res = await Axios.get('http://www.cheapshark.com/api/1.0/deals?id=' + dealId);
     if (res.status === 200) {
@@ -44,6 +53,9 @@ export class GameService {
     throw new Error('Error fetching deals data');
   }
 
+  /**
+   * return all games with title grand%20theft%20auto
+   */
   private async fetchGameInfo(): Promise<AxiosResponse> {
     const res = await Axios.get('http://www.cheapshark.com/api/1.0/deals?storeID=1&desc=0&title=grand%20theft%20auto&pageSize=20');
     if (res.status === 200) {

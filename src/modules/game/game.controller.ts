@@ -10,6 +10,10 @@ export class GameController {
     private readonly eventsService: EventsService,
   ) {}
 
+  /**
+   * calls a method that creates event in Database
+   * return all games according to the IGame interface
+   */
   @Get('/')
   async getGameInfo() {
     try {

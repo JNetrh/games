@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { EventsModule } from './modules/events/events.module';
 import { AuthModule } from './modules/auth/auth.module';
 
+// TODO: change <password> for a password
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb+srv://UPlusTest:<password>@upluscluster-rz1dt.mongodb.net/games?retryWrites=true', { useNewUrlParser: true }),
