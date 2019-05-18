@@ -50,5 +50,5 @@ Without authorization token, API return unAuthorized.
 $ curl localhost:3000/events -H {Authorization: Bearer 1234}
 ```
 ## Database
-It is used MongoDB on cloud. The database is noSQL, all data are stored as a JSON documents. There is a gatabase games and a collection `searchevents`.
+It is used MongoDB on cloud. The database is noSQL, all data are stored as a JSON documents. There is a database `games` and a collection `searchevents`.
 [link]https://cloud.mongodb.com/ 
