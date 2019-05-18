@@ -29,3 +29,26 @@ $ npm install
 ```bash
 $ npm start
 ```
+
+## API
+
+Returns all GTA games according to the IGame interface. 
+```
+ /games
+```
+
+Returns all events made on Mondays. There is one sample for Monday.
+```
+ /events
+```
+Events is a private endpoint. To retrieve the data we need to pass Authorization header, 
+authorization tokes is 1234. The strategy is Bearer.
+Without authorization token, API return unAuthorized.
+
+
+```bash
+$ curl localhost:3000/events -H {Authorization: Bearer 1234}
+```
+## Database
+It is used MongoDB on cloud. The database is noSQL, all data are stored as a JSON documents. There is a gatabase games and a collection `searchevents`.
+[link]https://cloud.mongodb.com/ 
